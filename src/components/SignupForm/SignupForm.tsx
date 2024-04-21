@@ -5,13 +5,19 @@ import InputText from '../InputText/InputText';
 import Button from '../Button/Button';
 
 const SignupForm: React.FC = () => {
-
   const [formData, setFormData] = React.useState({
     nome: '',
     email: '',
     senha: '',
     bio: ''
   });
+
+  React.useEffect(() => {
+    const storedData = localStorage.getItem('formData');
+    if (storedData) {
+      setFormData(JSON.parse(storedData));
+    }
+  }, []);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -22,15 +28,16 @@ const SignupForm: React.FC = () => {
   };
 
   const handleSubmit = () => {
-    localStorage.setItem('formData', JSON.stringify(formData));
-    // Limpar os campos após salvar, se necessário
+    const savedData = JSON.parse(localStorage.getItem('formData') || '[]');
+    const newData = Array.isArray(savedData) ? [...savedData, formData] : [formData];
+    localStorage.setItem('formData', JSON.stringify(newData));
     setFormData({
       nome: '',
       email: '',
       senha: '',
       bio: ''
     });
-  };
+};
 
   return (
     <div className="signupForm">
@@ -46,7 +53,7 @@ const SignupForm: React.FC = () => {
       <label htmlFor="bio">Bio</label>
       <textarea id="bio" name="bio" value={formData.bio} onChange={handleChange} />
 
-      <Button  text='Cadastrar' />
+      <Button onClick={handleSubmit} text='Cadastrar' />
     </div>
   );
 };

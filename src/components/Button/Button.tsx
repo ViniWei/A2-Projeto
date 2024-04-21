@@ -3,11 +3,12 @@ import "./button.css"
 
 interface ButtonProps {
     text: string;
+    onClick: () => void;
 }
 
-const Button: React.FC<ButtonProps> = ({ text }) => {
+const Button: React.FC<ButtonProps> = ({ text, onClick  }) => {
   return (
-    <button className="button">
+    <button className="button" onClick={onClick}>
         {text}
     </button>
   );
