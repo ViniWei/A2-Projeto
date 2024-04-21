@@ -2,7 +2,7 @@
     background-color: #cacaca;
     display: flex;
     flex-direction: column; 
-    width: 480px;
+    /* width: 25%; */
     margin: 5px;
 }
 
@@ -16,3 +16,4 @@
     display: flex;
     justify-content: center;
 }
+
