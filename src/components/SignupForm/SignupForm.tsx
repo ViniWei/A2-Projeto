@@ -2,6 +2,7 @@
 import React from 'react';
 import "./signupForm.css";
 import InputText from '../InputText/InputText';
+import Button from '../Button/Button';
 
 const SignupForm: React.FC = () => {
 
@@ -34,18 +35,18 @@ const SignupForm: React.FC = () => {
   return (
     <div className="signupForm">
       <label htmlFor="nome">Nome</label>
-      <InputText id="nome" name="nome" value={formData.nome} onChange={handleChange} />
+      <InputText placeholder="Digite o seu nome" id="nome" name="nome" value={formData.nome} onChange={handleChange} />
 
       <label htmlFor="email">Email</label>
-      <InputText id="email" name="email" value={formData.email} onChange={handleChange} />
+      <InputText placeholder="Digite o seu email" id="email" name="email" value={formData.email} onChange={handleChange} />
 
       <label htmlFor="senha">Senha</label>
-      <InputText id="senha" name="senha" value={formData.senha} onChange={handleChange} />
+      <InputText placeholder="Digite sua senha" id="senha" name="senha" value={formData.senha} onChange={handleChange} />
 
       <label htmlFor="bio">Bio</label>
       <textarea id="bio" name="bio" value={formData.bio} onChange={handleChange} />
 
-      <button onClick={handleSubmit}>Cadastrar</button>
+      <Button  text='Cadastrar' />
     </div>
   );
 };
