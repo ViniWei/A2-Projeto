@@ -25,10 +25,10 @@ const Dashboard: React.FC = () => {
   const [newCardName, setNewCardName] = useState("");
 
   let collumns = [
-    "To do",
-    "Doing",
-    "To review",
-    "Done",
+    "Para fazer",
+    "Fazendo",
+    "Testando",
+    "Completo",
   ];
 
   function returnCard(index: number){
@@ -36,6 +36,10 @@ const Dashboard: React.FC = () => {
   }
 
   function addCard() {
+    if (newCardName == ""){
+      return;
+    }
+
     let newCards = [...cards];
 
     newCards.push({
@@ -45,6 +49,7 @@ const Dashboard: React.FC = () => {
     });
 
     setCards(newCards);
+    setNewCardName("");
   }
 
   return (

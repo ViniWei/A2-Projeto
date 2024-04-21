@@ -5,6 +5,7 @@
     justify-content: space-between;
     gap: 10px;
     text-align: center;
+    position: relative;
 }
 
 .content{
@@ -15,4 +16,10 @@
 
 .R{
     order: 2;
+}
+
+.close-card {
+    position: absolute;
+    top: 0;
+    right: 0;
 }
