@@ -15,18 +15,19 @@ const Card = (values: params): ReactNode => {
       </div>
         <button className='L'>L</button>
         <button className='R'>R</button>
+      <button className='close-card'>X</button>
     </div>
   );
 
   function getPriority(priority: number){
     switch (priority) {
-      case 1:
+      case 0:
         return "Máxima";
-      case 2:
+      case 1:
         return "Alta";
-      case 3:
+      case 2:
         return "Média";
-      case 4:
+      case 3:
         return "Baixa";
     } 
   }
