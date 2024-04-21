@@ -1,0 +1,18 @@
+.column {
+    background-color: #cacaca;
+    display: flex;
+    flex-direction: column; 
+    width: 480px;
+    margin: 5px;
+}
+
+.cards{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.title{
+    display: flex;
+    justify-content: center;
+}
