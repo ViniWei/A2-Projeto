@@ -1,11 +1,11 @@
 import React from 'react';
 
-const Register: React.FC = () => {
+const Signup: React.FC = () => {
   return (
-    <div className="register">
+    <div className="signup">
         <h1>Altieris Souza</h1>
     </div>
   );
 }
 
-export default Register;
+export default Signup;
