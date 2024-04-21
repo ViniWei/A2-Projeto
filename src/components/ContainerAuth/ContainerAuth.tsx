@@ -1,9 +1,14 @@
 import React from 'react';
+import './ContainerAuth.css';
 
-const Container: React.FC = () => {
+interface ContainerProps {
+    children: React.ReactNode;
+  }
+
+const Container: React.FC<ContainerProps> = ({ children }) => {
   return (
     <div className="container">
-        <h1>Altieris Souza</h1>
+        {children}
     </div>
   );
 }
