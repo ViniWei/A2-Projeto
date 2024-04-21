@@ -1,0 +1,18 @@
+.signupForm{
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+}
+
+textarea{
+    max-width: 100%;
+    min-width: 100%;
+    max-height: 90px;
+    border: none;
+    padding: 0;
+}
+
+label{
+    max-width: 100px;
+    margin-top: 20px;
+}

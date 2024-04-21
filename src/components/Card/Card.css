@@ -1,0 +1,18 @@
+.card {
+    background-color: black;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 10px;
+    text-align: center;
+}
+
+.content{
+    display: flex;
+    flex-direction: column;
+    order: 1;
+}
+
+.R{
+    order: 2;
+}
