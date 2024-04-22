@@ -1,0 +1,10 @@
+.signinForm{
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+}
+
+label{
+    max-width: 100px;
+    margin-top: 20px;
+}
