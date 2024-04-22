@@ -4,6 +4,7 @@ import "./signinForm.css";
 import InputText from '../InputText/InputText';
 import Button from '../Button/Button';
 import { toast } from 'react-toastify';
+import Link from 'next/link';
 
 const SigninForm: React.FC = () => {
     const [formData, setFormData] = React.useState({
@@ -48,15 +49,28 @@ const SigninForm: React.FC = () => {
   
     return (
       <div className="signinForm">
-        <label htmlFor="email">Email</label>
-        <InputText placeholder="Digite o seu email" id="email" name="email" value={formData.email} onChange={handleChange} />
+
+        <h3>Login</h3>
+
+        <div className='containerDiv'>
+          <label htmlFor="email">Email</label>
+          <InputText placeholder="Digite o seu email" id="email" name="email" value={formData.email} onChange={handleChange} />
+        </div>
   
-        <label htmlFor="senha">Senha</label>
-        <InputText placeholder="Digite sua senha" id="senha" name="senha" value={formData.senha} onChange={handleChange} />
+        <div className='containerDiv'>
+          <label htmlFor="senha">Senha</label>
+          <InputText placeholder="Digite sua senha" id="senha" name="senha" value={formData.senha} onChange={handleChange} />
+        </div>
   
         <Button onClick={handleSubmit} text='Entrar' />
+        
+        <Link href="/signup" passHref>
+          Ainda não possui uma conta?
+        </Link>
 
-        <Button onClick={handleSubmit} text='Cadastro' />
+        <Link href="/signup" passHref>
+          <Button onClick={handleSubmit} text='Cadastre-se' />
+        </Link>
   
       </div>
     );
