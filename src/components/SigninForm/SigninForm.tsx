@@ -64,11 +64,11 @@ const SigninForm: React.FC = () => {
   
         <Button onClick={handleSubmit} text='Entrar' />
         
-        <Link href="/signup" passHref>
+        <Link href="/signup" passHref style={{textDecoration: "none", color: "white"}}>
           Ainda não possui uma conta?
         </Link>
 
-        <Link href="/signup" passHref>
+        <Link href="/signup" passHref style={{width: "100%"}}>
           <Button onClick={handleSubmit} text='Cadastre-se' />
         </Link>
   
