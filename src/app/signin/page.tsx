@@ -7,7 +7,7 @@ export default function SignupPage(){
     return <>
         <body style={{backgroundColor: "#121214"}}>
             <div className="signin">
-            <SignupMenu ></SignupMenu> 
+            <SignupMenu></SignupMenu> 
                 <Container>
                     <SigninForm></SigninForm>
                 </Container>
