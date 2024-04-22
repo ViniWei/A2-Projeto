@@ -3,6 +3,7 @@ import React from 'react';
 import "./signinForm.css";
 import InputText from '../InputText/InputText';
 import Button from '../Button/Button';
+import { toast } from 'react-toastify';
 
 const SigninForm: React.FC = () => {
     const [formData, setFormData] = React.useState({
@@ -27,15 +28,23 @@ const SigninForm: React.FC = () => {
   
     const handleSubmit = () => {
       const savedData = JSON.parse(localStorage.getItem('formData') || '[]');
-      const newData = Array.isArray(savedData) ? [...savedData, formData] : [formData];
-      localStorage.setItem('formData', JSON.stringify(newData));
+
+      const user = savedData.find((element: any) => {
+        return element.email === formData.email && element.senha === formData.senha;
+      });
+    
+      if (user) {
+        toast.success('Login realizado com sucesso!');
+      } else {
+        toast.error('Usuário não encontrado!');
+      }
+
+
       setFormData({
         email: '',
         senha: '',
       });
     };
-  
-    const savedArray = JSON.parse(localStorage.getItem('formData') || '[]');
   
     return (
       <div className="signinForm">
