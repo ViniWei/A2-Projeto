@@ -20,4 +20,9 @@ textarea{
 label{
     max-width: 100px;
     margin-top: 20px;
+    margin-bottom: 2px;
+}
+
+span{
+    color: rgb(209, 95, 95);
 }
