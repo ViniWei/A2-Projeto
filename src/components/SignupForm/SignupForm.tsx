@@ -30,10 +30,10 @@ const SignupForm: React.FC = () => {
 
   const handleSubmit = () => {
 
-    if (!formData.nome || !formData.email || !formData.senha || formData.nome.trim() === '' || formData.email.trim() === '' || formData.senha.trim() === '') {
-        toast.error('Os campos nome, email e senha devem estar preenchidos.');
-        return;
-      }
+  if (!formData.nome || !formData.email || !formData.senha || formData.nome.trim() === '' || formData.email.trim() === '' || formData.senha.trim() === '') {
+    toast.error('Os campos nome, email e senha devem estar preenchidos.');
+    return;
+  }
 
     const savedData = JSON.parse(localStorage.getItem('formData') || '[]');
     const newData = Array.isArray(savedData) ? [...savedData, formData] : [formData];

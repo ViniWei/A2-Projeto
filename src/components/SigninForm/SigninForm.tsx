@@ -46,17 +46,9 @@ const SigninForm: React.FC = () => {
         <InputText placeholder="Digite sua senha" id="senha" name="senha" value={formData.senha} onChange={handleChange} />
   
         <Button onClick={handleSubmit} text='Entrar' />
+
+        <Button onClick={handleSubmit} text='Cadastro' />
   
-        <div>
-          <h2>Dados Salvos:</h2>
-          <ul>
-            {savedArray.map((data: any, index: number) => (
-              <li key={index}>
-                Email: {data.email}, Senha: {data.senha}
-              </li>
-            ))}
-          </ul>
-        </div>
       </div>
     );
   };
