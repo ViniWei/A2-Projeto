@@ -9,7 +9,7 @@ const SignupMenu: React.FC = () => {
     <div className="signupMenu">
       <h2>Nome Proj</h2>
       <Link href="/" passHref>
-        <button>Voltar</button>
+        <button className="buttonReturn">Voltar</button>
       </Link>
     </div>
   );
