@@ -4,8 +4,12 @@ import "./signupForm.css";
 import InputText from "../InputText/InputText";
 import Button from "../Button/Button";
 import { toast } from "react-toastify";
+import { useRouter } from 'next/navigation';
 
 const SignupForm: React.FC = () => {
+
+  const router = useRouter()
+
   const [formData, setFormData] = React.useState({
     nome: "",
     email: "",
@@ -54,7 +58,14 @@ const SignupForm: React.FC = () => {
       senha: "",
       bio: "",
     });
-    toast.success("Cadastro realizado com sucesso!");
+    toast.success("Cadastro realizado com sucesso!", {
+      autoClose: 1800
+      
+    });
+
+    setTimeout(() => {
+      router.push("/signin")
+    }, 2000)
   };
 
   return (
