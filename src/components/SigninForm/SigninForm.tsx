@@ -1,22 +1,22 @@
 "use client"
-import React from 'react';
-import "./signinForm.css";
+import React, { useEffect, useState } from 'react';
 import InputText from '../InputText/InputText';
 import Button from '../Button/Button';
 import { toast } from 'react-toastify';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
+import { StyledContainerDiv, StyledForm, StyledLabel } from './style';
 
 const SigninForm: React.FC = () => {
 
   const router = useRouter()
 
-  const [formData, setFormData] = React.useState({
+  const [formData, setFormData] = useState({
     email: '',
     senha: '',
   });
 
-  React.useEffect(() => {
+  useEffect(() => {
     const storedData = localStorage.getItem('formData');
     if (storedData) {
       setFormData(JSON.parse(storedData));
@@ -59,19 +59,19 @@ const SigninForm: React.FC = () => {
   };
 
   return (
-    <div className="signinForm">
+    <StyledForm  className="signinForm">
 
       <h3>Login</h3>
 
-      <div className='containerDiv'>
-        <label htmlFor="email">Email</label>
+      <StyledContainerDiv className='containerDiv'>
+        <StyledLabel htmlFor="email">Email</StyledLabel>
         <InputText placeholder="Digite o seu email" id="email" name="email" value={formData.email} onChange={handleChange} />
-      </div>
+      </StyledContainerDiv>
 
-      <div className='containerDiv'>
-        <label htmlFor="senha">Senha</label>
+      <StyledContainerDiv className='containerDiv'>
+        <StyledLabel htmlFor="senha">Senha</StyledLabel>
         <InputText placeholder="Digite sua senha" id="senha" name="senha" value={formData.senha} onChange={handleChange} />
-      </div>
+      </StyledContainerDiv>
 
       <Button onClick={handleSubmit} text='Entrar' />
       
@@ -83,7 +83,7 @@ const SigninForm: React.FC = () => {
         <Button text='Cadastre-se' />
       </Link>
 
-    </div>
+    </StyledForm >
   );
 };
 

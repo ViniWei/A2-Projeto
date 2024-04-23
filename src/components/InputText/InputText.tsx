@@ -1,5 +1,5 @@
 import React from 'react';
-import "./inputText.css"
+import { StyledInput } from './style';
 
 interface InputTextProps {
     id: string;
@@ -11,7 +11,7 @@ interface InputTextProps {
 
 const InputText: React.FC<InputTextProps> = ({ id, name, value, onChange, placeholder }) => {
   return (
-    <input
+    <StyledInput
         id={id}
         name={name}
         value={value}
