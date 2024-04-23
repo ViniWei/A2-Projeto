@@ -1,5 +1,5 @@
 import React from 'react';
-import "./button.css"
+import { StyledButton } from './style';
 
 interface ButtonProps {
     text: string;
@@ -8,9 +8,9 @@ interface ButtonProps {
 
 const Button: React.FC<ButtonProps> = ({ text, onClick  }) => {
   return (
-    <button className="button" onClick={onClick} >
+    <StyledButton className="button" onClick={onClick} >
         {text}
-    </button>
+    </StyledButton>
   );
 }
 
