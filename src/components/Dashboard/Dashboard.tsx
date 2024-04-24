@@ -1,26 +1,10 @@
 import React, { useState } from 'react';
 import Column from '../Column/Column';
 import './Dashboard.css';
+import { useCardStore, Card } from '@/stores/CardsStore';
 
 const Dashboard: React.FC = () => {
-  const [cards, setCards] = useState([
-    {
-      name: "Testar a função de troca de nome",
-      priority: 2,
-      columnIndex: 3 
-    },
-    {
-      name: "Implementar local storage",
-      priority: 2,
-      columnIndex: 1
-    },
-    {
-      name: "Adicionar botão de remover cards",
-      priority: 2,
-      columnIndex: 1
-    },
-  ]);
-
+  const { addCard } = useCardStore();
   const [newCardPriority, setNewCardPriority] = useState(0);
   const [newCardName, setNewCardName] = useState("");
 
@@ -32,24 +16,24 @@ const Dashboard: React.FC = () => {
   ];
 
   function returnCard(index: number){
+    let cards = useCardStore((state) => state.cards)
     return cards.filter(card => card.columnIndex == index);
   }
 
-  function addCard() {
+  function sendCardToStore() {
     if (newCardName == ""){
       return;
     }
+    setNewCardName("");
+    
 
-    let newCards = [...cards];
-
-    newCards.push({
+    let card : Card = {
       name: newCardName,
       priority: newCardPriority,
       columnIndex: 0
-    });
+    };
 
-    setCards(newCards);
-    setNewCardName("");
+    addCard(card);
   }
 
   return (
@@ -62,7 +46,7 @@ const Dashboard: React.FC = () => {
           <option value="2">Média</option>
           <option value="3">Baixa</option>
         </select>
-        <button onClick={addCard}>Add</button>
+        <button onClick={sendCardToStore}>Add</button>
       </div>
       <div className="Dashboard">
           {collumns.map((collumn, index) => (
