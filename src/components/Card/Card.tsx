@@ -1,12 +1,16 @@
 import React, { ReactNode } from 'react';
 import './Card.css'
+import { useCardStore } from '@/stores/CardsStore';
 	
 interface params {
+  id: number,
   name: string,
   priority: number
 }
 
 const Card = (values: params): ReactNode => {
+  const { deleteCard } = useCardStore();
+
   return (
     <div className="card">
       <div className='content'>
@@ -15,7 +19,7 @@ const Card = (values: params): ReactNode => {
       </div>
         <button className='L'>L</button>
         <button className='R'>R</button>
-      <button className='close-card'>X</button>
+      <button className='close-card' onClick={() => deleteCard(values.id)}>X</button>
     </div>
   );
 

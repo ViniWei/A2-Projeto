@@ -26,13 +26,12 @@ const Dashboard: React.FC = () => {
     }
     setNewCardName("");
     
-
     let card : Card = {
+      id: Math.floor(Math.random() * (999999 - 100000 + 1)) + 100000,
       name: newCardName,
       priority: newCardPriority,
       columnIndex: 0
     };
-
     addCard(card);
   }
 
