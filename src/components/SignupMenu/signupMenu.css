@@ -1,0 +1,21 @@
+.signupMenu {
+  display: flex;
+  width: 90%;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+h2 {
+  color: #ff577f;
+}
+
+.buttonReturn {
+  background-color: aquamarine;
+  border: none;
+  background-color: #212529;
+  border-radius: 4px;
+  padding: 10px 15px 10px 15px;
+  color: white;
+  cursor: pointer;
+}
