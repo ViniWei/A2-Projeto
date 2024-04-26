@@ -4,7 +4,7 @@ import './Column.css';
 
 interface ColumnProps {
   title: string;
-  cards: { name: string; priority: number }[];
+  cards: { id: number, name: string; priority: number }[];
 }
 
 const Column: React.FC<ColumnProps> = ({ title, cards }) => {
@@ -13,7 +13,7 @@ const Column: React.FC<ColumnProps> = ({ title, cards }) => {
       <h2 className='title'>{title}</h2>
       <div className="cards">
         {cards.map((card, index) => (
-          <Card key={index} name={card.name} priority={card.priority} />
+          <Card key={index} id={card.id} name={card.name} priority={card.priority} />
         ))}
       </div>
     </div>
