@@ -7,7 +7,7 @@ import Link from "next/link";
 const SignupMenu: React.FC = () => {
   return (
     <div className="signupMenu">
-      <h2>Nome Proj</h2>
+      <h2>Cadastro</h2>
       <Link href="/" passHref>
         <button className="buttonReturn">Voltar</button>
       </Link>
