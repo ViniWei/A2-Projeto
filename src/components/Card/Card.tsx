@@ -1,7 +1,7 @@
 // Card.tsx
 import React, { ReactNode } from 'react';
 import './Card.css';
-import { useCardStore, Card } from '@/stores/CardsStore';
+import { useCardStore, Card } from '@/Stores/CardsStore';
 
 interface CardProps {
   id: number,
@@ -28,7 +28,7 @@ const CardComponent: React.FC<CardProps> = ({ id, name, priority }) => {
       </div>
       <button className='L' onClick={left}>L</button>
       <button className='R' onClick={right}>R</button>
-      <button className='close-card' onClick={() => deleteCard(id)}>X</button>
+      <button className='close-card' onClick={() => deleteCard(id)}>x</button>
     </div>
   );
 };

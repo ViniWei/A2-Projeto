@@ -41,6 +41,9 @@ const SigninForm: React.FC = () => {
       );
     });
 
+    const userString = JSON.stringify(user);
+    localStorage.setItem('user', userString);
+
     if (user) {
       toast.success("Login realizado com sucesso!", {
         autoClose: 1800,
