@@ -1,0 +1,92 @@
+.Dashboard {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .containerData{
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+  }
+
+  .containerInfoInput{
+    display: flex;
+    margin: 0 auto;
+    justify-content: space-around;
+    align-items: center;
+    width: 50%;
+  }
+
+  .contentUser{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+  }
+
+  .contentUser p{
+    margin: 0;
+  }
+
+  .styledSelect {
+    width: 100%;
+    border: 1px solid white;
+    padding: 0 0 0 5px;
+    background-color: #343B41;
+    height: 30px;
+    border-radius: 4px;
+    color: white;
+    outline: none;
+    margin-top: 4px;
+  }
+  
+  .styledOption {
+    background-color: #343B41;
+    color: white;
+  }
+
+  .styledInput {
+    border: 1px solid white;
+    padding: 0 0 0 5px;
+    background-color: #343B41;
+    height: 30px;
+    border-radius: 4px;
+    color: white;
+    outline: none;
+    margin-top: 4px;
+  }
+  
+  @media (max-width: 768px) {
+    .Dashboard {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .containerData{
+      width: 65%;
+    }
+
+    .containerInfoInput{
+      width: 80%;
+    }
+    
+  }
+  
+  @media (max-width: 480px) {
+    .Dashboard {
+      grid-template-columns: 1fr;
+    }
+
+    .containerData{
+      width: 90%;
+    }
+
+    .containerInfoInput{
+      flex-direction: column;
+      margin-bottom: 20px;
+    }
+    
+    .contentUser{
+      margin-bottom: 20px;
+    }
+
+  }

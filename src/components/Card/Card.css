@@ -1,0 +1,46 @@
+.card {
+    background-color: #343B41;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 10px;
+    text-align: center;
+    position: relative;
+    border-radius: 8px;
+}
+
+.content{
+    display: flex;
+    flex-direction: column;
+    order: 1;
+}
+
+.R{
+    cursor: pointer;
+    order: 3;
+    border: none;
+    border-radius: 8px;
+    color: white;
+}
+
+.L{
+    cursor: pointer;
+    border: none;
+    border-radius: 8px;
+    color: white;
+}
+
+button {
+    background-color: #FF577F;
+}
+
+.close-card {
+    order: 2;
+    height: 20px;
+    align-items: center;
+    border-radius: 50%;
+    border: none;
+    color: white;
+    margin-top: 5px;
+    cursor: pointer;
+}
