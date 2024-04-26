@@ -19,7 +19,7 @@ const SigninForm: React.FC = () => {
   });
 
   useEffect(() => {
-    const usersStore = users;
+    localStorage.clear();
   }, []);
 
   const handleChange = (
