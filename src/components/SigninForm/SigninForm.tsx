@@ -6,9 +6,12 @@ import { toast } from "react-toastify";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { StyledContainerDiv, StyledForm, StyledLabel } from "./style";
+import { useUserStore } from "@/Stores/users";
 
 const SigninForm: React.FC = () => {
   const router = useRouter();
+
+  const { users }: any = useUserStore();
 
   const [formData, setFormData] = useState({
     email: "",
@@ -16,10 +19,7 @@ const SigninForm: React.FC = () => {
   });
 
   useEffect(() => {
-    const storedData = localStorage.getItem("formData");
-    if (storedData) {
-      setFormData(JSON.parse(storedData));
-    }
+    const usersStore = users;
   }, []);
 
   const handleChange = (
@@ -33,9 +33,9 @@ const SigninForm: React.FC = () => {
   };
 
   const handleSubmit = () => {
-    const savedData = JSON.parse(localStorage.getItem("formData") || "[]");
+    const usersStore = users
 
-    const user = savedData.find((element: any) => {
+    const user = usersStore.find((element: any) => {
       return (
         element.email === formData.email && element.senha === formData.senha
       );

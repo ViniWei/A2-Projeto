@@ -5,8 +5,11 @@ import InputText from "../InputText/InputText";
 import Button from "../Button/Button";
 import { toast } from "react-toastify";
 import { useRouter } from 'next/navigation';
+import {useUserStore} from "@/Stores/users";
 
 const SignupForm: React.FC = () => {
+
+  const { addUser }: any = useUserStore();
 
   const router = useRouter()
 
@@ -16,13 +19,6 @@ const SignupForm: React.FC = () => {
     senha: "",
     bio: "",
   });
-
-  React.useEffect(() => {
-    const storedData = localStorage.getItem("formData");
-    if (storedData) {
-      setFormData(JSON.parse(storedData));
-    }
-  }, []);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -47,11 +43,8 @@ const SignupForm: React.FC = () => {
       return;
     }
 
-    const savedData = JSON.parse(localStorage.getItem("formData") || "[]");
-    const newData = Array.isArray(savedData)
-      ? [...savedData, formData]
-      : [formData];
-    localStorage.setItem("formData", JSON.stringify(newData));
+    addUser(formData)
+
     setFormData({
       nome: "",
       email: "",
@@ -60,12 +53,11 @@ const SignupForm: React.FC = () => {
     });
     toast.success("Cadastro realizado com sucesso!", {
       autoClose: 1800
-      
     });
 
     setTimeout(() => {
       router.push("/signin")
-    }, 2000)
+    }, 1800)
   };
 
   return (
@@ -111,7 +103,9 @@ const SignupForm: React.FC = () => {
         onChange={handleChange}
       />
 
-      <Button onClick={handleSubmit} text="Cadastrar" />
+      <Button onClick={() => {
+        handleSubmit()
+      }} text="Cadastrar" />
     </div>
   );
 };
