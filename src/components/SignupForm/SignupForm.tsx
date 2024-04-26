@@ -17,7 +17,6 @@ const SignupForm: React.FC = () => {
     nome: "",
     email: "",
     senha: "",
-    bio: "",
   });
 
   const handleChange = (
@@ -49,7 +48,6 @@ const SignupForm: React.FC = () => {
       nome: "",
       email: "",
       senha: "",
-      bio: "",
     });
     toast.success("Cadastro realizado com sucesso!", {
       autoClose: 1800
@@ -92,14 +90,6 @@ const SignupForm: React.FC = () => {
         id="senha"
         name="senha"
         value={formData.senha}
-        onChange={handleChange}
-      />
-
-      <label htmlFor="bio">Bio</label>
-      <textarea
-        id="bio"
-        name="bio"
-        value={formData.bio}
         onChange={handleChange}
       />
 
