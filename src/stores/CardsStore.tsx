@@ -33,7 +33,7 @@ function moveCard(cards: Card[], cardId: number, direction: number) {
 
   if (card) {
     const newIndex = card.columnIndex + direction;
-    if (newIndex >= 0 && newIndex < cards.length) {
+    if (newIndex >= 0 && newIndex < 4) {
       cards[index].columnIndex = newIndex;
     }
   }
