@@ -7,6 +7,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { StyledContainerDiv, StyledForm, StyledLabel } from "./style";
 import { useUserStore } from "@/Stores/users";
+import userService from "../../Services/user.service"
 
 const SigninForm: React.FC = () => {
   const router = useRouter();
@@ -32,8 +33,10 @@ const SigninForm: React.FC = () => {
     });
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = async() => {
     const usersStore = users
+
+    console.log(await userService.getAll())
 
     const user = usersStore.find((element: any) => {
       return (
