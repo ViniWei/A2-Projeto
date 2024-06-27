@@ -6,15 +6,13 @@ import { toast } from "react-toastify";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { StyledContainerDiv, StyledForm, StyledLabel } from "./style";
-import { useUserStore } from "@/Stores/users";
 import userService from "../../Services/user.service"
 
 const SigninForm: React.FC = () => {
   const router = useRouter();
 
-  const { users }: any = useUserStore();
-
   const [formData, setFormData] = useState({
+    name: "",
     email: "",
     senha: "",
   });
@@ -34,20 +32,17 @@ const SigninForm: React.FC = () => {
   };
 
   const handleSubmit = async() => {
-    const usersStore = users
+    const response = await userService.login({
+      email: formData.email,
+      password: formData.senha
+    })
 
-    console.log(await userService.getAll())
+    console.log(response.data.user)
 
-    const user = usersStore.find((element: any) => {
-      return (
-        element.email === formData.email && element.senha === formData.senha
-      );
-    });
+    if (response.data.sucess) {
+      const userString = JSON.stringify(response.data.user);
+      localStorage.setItem('user', userString);
 
-    const userString = JSON.stringify(user);
-    localStorage.setItem('user', userString);
-
-    if (user) {
       toast.success("Login realizado com sucesso!", {
         autoClose: 1800,
       });
@@ -60,6 +55,7 @@ const SigninForm: React.FC = () => {
     }
 
     setFormData({
+      name: "",
       email: "",
       senha: "",
     });

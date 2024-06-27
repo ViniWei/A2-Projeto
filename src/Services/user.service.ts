@@ -11,7 +11,13 @@ async function create(data: object) {
     return axios.post(url + "create", data);
 }
 
+async function login(data: object) {
+    console.log(data)
+    return axios.post(url + "login", data);
+}
+
 export default {
     getAll,
-    create
+    create,
+    login
 }

@@ -45,9 +45,9 @@ const SignupForm: React.FC = () => {
 
     addUser(formData)
     userService.create({
-        name: formData.nome,
-        password: formData.senha,
-        email: formData.email
+      name: formData.nome,
+      password: formData.senha,
+      email: formData.email
     })
 
     setFormData({
