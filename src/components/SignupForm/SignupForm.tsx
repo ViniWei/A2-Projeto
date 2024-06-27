@@ -6,6 +6,7 @@ import Button from "../Button/Button";
 import { toast } from "react-toastify";
 import { useRouter } from 'next/navigation';
 import {useUserStore} from "@/Stores/users";
+import userService from "@/Services/user.service";
 
 const SignupForm: React.FC = () => {
 
@@ -43,6 +44,11 @@ const SignupForm: React.FC = () => {
     }
 
     addUser(formData)
+    userService.create({
+        name: formData.nome,
+        password: formData.senha,
+        email: formData.email
+    })
 
     setFormData({
       nome: "",

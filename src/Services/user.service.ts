@@ -6,6 +6,12 @@ async function getAll() {
     return axios.get(url + "getAll")
 }
 
+async function create(data: object) {
+    console.log(data)
+    return axios.post(url + "create", data);
+}
+
 export default {
-    getAll
+    getAll,
+    create
 }
