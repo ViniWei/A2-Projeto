@@ -2,9 +2,17 @@ import { create } from 'zustand';
 
 interface CardState {
   cards: Card[];
+  currentProject?: Project; // New variable to store the current project name
   addCard: (card: Card) => void;
   deleteCard: (cardId: number) => void;
   moveCard: (cardId: number, direction: number) => void;
+  setCurrentProject: (project: Project) => void; // New function to set the current project
+}
+
+interface Project {
+    name: string,
+    userId: string,
+    cards: Card[]
 }
 
 export interface Card {
@@ -62,6 +70,8 @@ const useCardStore = create<CardState>((set) => ({
       columnIndex: 1
     },
   ],
+  currentProject: undefined,
+  setCurrentProject: (project) => set(() => ({ currentProject: project })),
   addCard: (card) => set((state) => ({ cards: pushCard(state.cards, card) })),
   deleteCard: (cardId) => set((state) => ({ cards: state.cards.filter((card) => card.id !== cardId) })),
   moveCard: (cardId, direction) => set((state) => ({ cards: moveCard(state.cards, cardId, direction) })),
